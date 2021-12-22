@@ -1,0 +1,93 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+body {
+    background-color: rgb(53, 44, 41);
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 3.5vmin;
+    color: white;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90vmin;
+    margin: auto;
+    height: 100vh;
+}
+
+.text {
+    width: 90vmin;
+    margin-bottom: 2vmin;
+    display: flex;
+    justify-content: space-between;
+}
+
+.grid {
+    width: 90vmin;
+    height: 90vmin;
+    border: 2vmin solid rgb(161, 97, 54);
+    background-color: rgb(161, 97, 54);
+    border-radius: 2vmin;
+    display: grid;
+    grid-template-rows: repeat(16, 1fr);
+    position: relative;
+}
+.grid::after {
+    text-shadow: 0px 0px 1.5vmin #000b;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+}
+.lost::after {
+    content: "Perdu ! Clique pour rejouer.";
+}
+.won::after {
+    content: "Gagné ! Clique pour rejouer.";
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr)
+}
+
+.cell {
+    background-color: rgb(135, 190, 75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lost .cell {
+    background-color: rgb(223, 83, 49);
+}
+.won .cell {
+    background-color: rgb(49, 125, 223);
+}
+.row:nth-child(2n) .cell:nth-child(2n), .row:nth-child(2n+1) .cell:nth-child(2n+1) {
+    background-color: rgb(115, 150, 65)
+} 
+.lost .row:nth-child(2n) .cell:nth-child(2n), 
+.lost .row:nth-child(2n+1) .cell:nth-child(2n+1) {
+    background-color: rgb(252, 109, 74);
+}
+.won .row:nth-child(2n) .cell:nth-child(2n), 
+.won .row:nth-child(2n+1) .cell:nth-child(2n+1) {
+    background-color: rgb(25, 101, 201);
+}
+.shown {
+    background-color: rgb(161, 97, 54) !important;
+}
